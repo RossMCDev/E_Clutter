@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A12AA1_DeclutterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Area_ID" />
+    </Key>
+    <Property Name="Area_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Item__Area_ID__1367E606" FromRole="Area" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Item_ID" />
+    </Key>
+    <Property Name="Item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SpaceTaken" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Moved" Type="Int32" Nullable="false" />
+    <Property Name="CoverImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Sell" Type="Boolean" Nullable="false" />
+    <Property Name="Dispose" Type="Boolean" Nullable="false" />
+    <Property Name="Repurpose" Type="Boolean" Nullable="false" />
+    <Property Name="GiveAway" Type="Boolean" Nullable="false" />
+    <Property Name="ActionCompleted" Type="Boolean" Nullable="false" />
+    <Property Name="SubItem" Type="Int32" Nullable="false" />
+    <Property Name="Area_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Area" Relationship="Self.FK__Item__Area_ID__1367E606" FromRole="Item" ToRole="Area" />
+    <NavigationProperty Name="Item1" Relationship="Self.FK__Item__SubItem__1273C1CD" FromRole="Item" ToRole="Item1" />
+    <NavigationProperty Name="Item2" Relationship="Self.FK__Item__SubItem__1273C1CD" FromRole="Item1" ToRole="Item" />
+  </EntityType>
+  <Association Name="FK__Item__Area_ID__1367E606">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Area_ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Area_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__SubItem__1273C1CD">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Item1" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Item1">
+        <PropertyRef Name="SubItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A12AA1_DeclutterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Areas" EntityType="Self.Area" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <AssociationSet Name="FK__Item__Area_ID__1367E606" Association="Self.FK__Item__Area_ID__1367E606">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__SubItem__1273C1CD" Association="Self.FK__Item__SubItem__1273C1CD">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Item1" EntitySet="Items" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

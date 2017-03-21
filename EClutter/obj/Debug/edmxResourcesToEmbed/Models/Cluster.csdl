@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DeclutterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CollectionItem">
+    <Key>
+      <PropertyRef Name="CollectionItem1" />
+    </Key>
+    <Property Name="CollectionItem1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <Property Name="Collection_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ICollection" Relationship="Self.FK__Collectio__Colle__29572725" FromRole="CollectionItem" ToRole="ICollection" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Collectio__Item___286302EC" FromRole="CollectionItem" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Disposable">
+    <Key>
+      <PropertyRef Name="Disposable_ID" />
+    </Key>
+    <Property Name="Disposable_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Disposed" Type="Boolean" Nullable="false" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Disposabl__Item___31EC6D26" FromRole="Disposable" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="For_Sale">
+    <Key>
+      <PropertyRef Name="For_Sale_ID" />
+    </Key>
+    <Property Name="For_Sale_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sold" Type="Boolean" Nullable="false" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__For_Sale__Item_I__2F10007B" FromRole="For_Sale" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Give_away">
+    <Key>
+      <PropertyRef Name="Give_away_ID" />
+    </Key>
+    <Property Name="Give_away_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Give_away__Item___37A5467C" FromRole="Give_away" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="ICollection">
+    <Key>
+      <PropertyRef Name="Collection_ID" />
+    </Key>
+    <Property Name="Collection_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISet" Type="Boolean" Nullable="false" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CollectionItems" Relationship="Self.FK__Collectio__Colle__29572725" FromRole="ICollection" ToRole="CollectionItem" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__ICollecti__Item___25869641" FromRole="ICollection" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Images_ID" />
+    </Key>
+    <Property Name="Images_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Images__Item_ID__2C3393D0" FromRole="Images" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Item_ID" />
+    </Key>
+    <Property Name="Item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Space_Taken" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Store_Location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Moved" Type="Int32" Nullable="false" />
+    <Property Name="Cover_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CollectionItems" Relationship="Self.FK__Collectio__Item___286302EC" FromRole="Item" ToRole="CollectionItem" />
+    <NavigationProperty Name="Disposables" Relationship="Self.FK__Disposabl__Item___31EC6D26" FromRole="Item" ToRole="Disposable" />
+    <NavigationProperty Name="For_Sale" Relationship="Self.FK__For_Sale__Item_I__2F10007B" FromRole="Item" ToRole="For_Sale" />
+    <NavigationProperty Name="Give_away" Relationship="Self.FK__Give_away__Item___37A5467C" FromRole="Item" ToRole="Give_away" />
+    <NavigationProperty Name="ICollections" Relationship="Self.FK__ICollecti__Item___25869641" FromRole="Item" ToRole="ICollection" />
+    <NavigationProperty Name="Images" Relationship="Self.FK__Images__Item_ID__2C3393D0" FromRole="Item" ToRole="Images" />
+    <NavigationProperty Name="Repurposables" Relationship="Self.FK__Repurposa__Item___34C8D9D1" FromRole="Item" ToRole="Repurposable" />
+  </EntityType>
+  <EntityType Name="Repurposable">
+    <Key>
+      <PropertyRef Name="Repurpose_ID" />
+    </Key>
+    <Property Name="Repurpose_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Repurposa__Item___34C8D9D1" FromRole="Repurposable" ToRole="Item" />
+  </EntityType>
+  <Association Name="FK__Collectio__Colle__29572725">
+    <End Role="ICollection" Type="Self.ICollection" Multiplicity="1" />
+    <End Role="CollectionItem" Type="Self.CollectionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ICollection">
+        <PropertyRef Name="Collection_ID" />
+      </Principal>
+      <Dependent Role="CollectionItem">
+        <PropertyRef Name="Collection_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Collectio__Item___286302EC">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="CollectionItem" Type="Self.CollectionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="CollectionItem">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Disposabl__Item___31EC6D26">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Disposable" Type="Self.Disposable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Disposable">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__For_Sale__Item_I__2F10007B">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="For_Sale" Type="Self.For_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="For_Sale">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Give_away__Item___37A5467C">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Give_away" Type="Self.Give_away" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Give_away">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ICollecti__Item___25869641">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="ICollection" Type="Self.ICollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="ICollection">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Images__Item_ID__2C3393D0">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Images" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Images">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Repurposa__Item___34C8D9D1">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Repurposable" Type="Self.Repurposable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Repurposable">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DeclutterDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CollectionItems" EntityType="Self.CollectionItem" />
+    <EntitySet Name="Disposables" EntityType="Self.Disposable" />
+    <EntitySet Name="For_Sale" EntityType="Self.For_Sale" />
+    <EntitySet Name="Give_away" EntityType="Self.Give_away" />
+    <EntitySet Name="ICollections" EntityType="Self.ICollection" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="Repurposables" EntityType="Self.Repurposable" />
+    <AssociationSet Name="FK__Collectio__Colle__29572725" Association="Self.FK__Collectio__Colle__29572725">
+      <End Role="ICollection" EntitySet="ICollections" />
+      <End Role="CollectionItem" EntitySet="CollectionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Collectio__Item___286302EC" Association="Self.FK__Collectio__Item___286302EC">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="CollectionItem" EntitySet="CollectionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Disposabl__Item___31EC6D26" Association="Self.FK__Disposabl__Item___31EC6D26">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Disposable" EntitySet="Disposables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__For_Sale__Item_I__2F10007B" Association="Self.FK__For_Sale__Item_I__2F10007B">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="For_Sale" EntitySet="For_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Give_away__Item___37A5467C" Association="Self.FK__Give_away__Item___37A5467C">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Give_away" EntitySet="Give_away" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ICollecti__Item___25869641" Association="Self.FK__ICollecti__Item___25869641">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ICollection" EntitySet="ICollections" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Images__Item_ID__2C3393D0" Association="Self.FK__Images__Item_ID__2C3393D0">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Images" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Repurposa__Item___34C8D9D1" Association="Self.FK__Repurposa__Item___34C8D9D1">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Repurposable" EntitySet="Repurposables" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

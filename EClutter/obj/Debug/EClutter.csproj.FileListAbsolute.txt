@@ -1,0 +1,69 @@
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EClutter.dll.config
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EClutter.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EClutter.pdb
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EntityFramework.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EntityFramework.SqlServer.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\Microsoft.Web.Infrastructure.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.Helpers.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.Mvc.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.Razor.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.WebPages.Deployment.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.WebPages.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.WebPages.Razor.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EntityFramework.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\EntityFramework.SqlServer.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.Helpers.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.Mvc.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.Razor.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.WebPages.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.WebPages.Deployment.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\bin\System.Web.WebPages.Razor.xml
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\obj\Debug\EClutter.csprojResolveAssemblyReference.cache
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\obj\Debug\EClutter.dll
+c:\users\ross\documents\visual studio 2013\Projects\EClutter\EClutter\obj\Debug\EClutter.pdb
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EClutter.dll.config
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EClutter.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EClutter.pdb
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EntityFramework.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EntityFramework.SqlServer.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.Helpers.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.Mvc.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.Razor.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.WebPages.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EntityFramework.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\EntityFramework.SqlServer.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.Helpers.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.Mvc.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.Razor.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.WebPages.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\obj\Debug\EClutter.csprojResolveAssemblyReference.cache
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\obj\Debug\EClutter.dll
+C:\Users\Ross\Documents\Just IT\JustIT\EClutter\EClutter\obj\Debug\EClutter.pdb
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EClutter.dll.config
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EClutter.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EClutter.pdb
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EntityFramework.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EntityFramework.SqlServer.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.Helpers.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.Mvc.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.Razor.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.WebPages.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EntityFramework.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\EntityFramework.SqlServer.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.Helpers.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.Mvc.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.Razor.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.WebPages.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\obj\Debug\EClutter.csprojResolveAssemblyReference.cache
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\obj\Debug\EClutter.dll
+C:\Users\Ross\Documents\GitHub\JustIT\EClutter\EClutter\obj\Debug\EClutter.pdb

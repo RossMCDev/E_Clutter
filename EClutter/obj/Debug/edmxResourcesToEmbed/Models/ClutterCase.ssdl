@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DeclutterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Area_ID" />
+    </Key>
+    <Property Name="Area_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area_Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Item_ID" />
+    </Key>
+    <Property Name="Item_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="SpaceTaken" Type="int" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Moved" Type="int" Nullable="false" />
+    <Property Name="CoverImage" Type="varchar(max)" />
+    <Property Name="Sell" Type="bit" Nullable="false" />
+    <Property Name="Dispose" Type="bit" Nullable="false" />
+    <Property Name="Repupose" Type="bit" Nullable="false" />
+    <Property Name="GiveAway" Type="bit" Nullable="false" />
+    <Property Name="ActionCompleted" Type="bit" Nullable="false" />
+    <Property Name="SubItem" Type="int" Nullable="false" />
+    <Property Name="Area_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Item__Area_ID__4CA06362">
+    <End Role="Area" Type="Self.Area" Multiplicity="1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="Area_ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Area_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__SubItem__4BAC3F29">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Item1" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Item1">
+        <PropertyRef Name="SubItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DeclutterDBModelStoreContainer">
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Item__Area_ID__4CA06362" Association="Self.FK__Item__Area_ID__4CA06362">
+      <End Role="Area" EntitySet="Area" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__SubItem__4BAC3F29" Association="Self.FK__Item__SubItem__4BAC3F29">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Item1" EntitySet="Item" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_A12AA1_DeclutterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Area_ID" />
+          </Key>
+          <Property Name="Area_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Area_Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Item_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="SpaceTaken" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Moved" Type="int" Nullable="false" />
+          <Property Name="CoverImage" Type="varchar(max)" />
+          <Property Name="Sell" Type="bit" Nullable="false" />
+          <Property Name="Dispose" Type="bit" Nullable="false" />
+          <Property Name="Repurpose" Type="bit" Nullable="false" />
+          <Property Name="GiveAway" Type="bit" Nullable="false" />
+          <Property Name="ActionCompleted" Type="bit" Nullable="false" />
+          <Property Name="SubItem" Type="int" Nullable="false" />
+          <Property Name="Area_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Item__Area_ID__1367E606">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Area_ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="Area_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Item__SubItem__1273C1CD">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Item1" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Item_ID" />
+            </Principal>
+            <Dependent Role="Item1">
+              <PropertyRef Name="SubItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A12AA1_DeclutterModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Item__Area_ID__1367E606" Association="Self.FK__Item__Area_ID__1367E606">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Item__SubItem__1273C1CD" Association="Self.FK__Item__SubItem__1273C1CD">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Item1" EntitySet="Item" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A12AA1_DeclutterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Area_ID" />
+          </Key>
+          <Property Name="Area_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Area_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK__Item__Area_ID__1367E606" FromRole="Area" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Item_ID" />
+          </Key>
+          <Property Name="Item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpaceTaken" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Moved" Type="Int32" Nullable="false" />
+          <Property Name="CoverImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sell" Type="Boolean" Nullable="false" />
+          <Property Name="Dispose" Type="Boolean" Nullable="false" />
+          <Property Name="Repurpose" Type="Boolean" Nullable="false" />
+          <Property Name="GiveAway" Type="Boolean" Nullable="false" />
+          <Property Name="ActionCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="SubItem" Type="Int32" Nullable="false" />
+          <Property Name="Area_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="Self.FK__Item__Area_ID__1367E606" FromRole="Item" ToRole="Area" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK__Item__SubItem__1273C1CD" FromRole="Item" ToRole="Item1" />
+          <NavigationProperty Name="Item2" Relationship="Self.FK__Item__SubItem__1273C1CD" FromRole="Item1" ToRole="Item" />
+        </EntityType>
+        <Association Name="FK__Item__Area_ID__1367E606">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="Area_ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="Area_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Item__SubItem__1273C1CD">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Item1" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Item_ID" />
+            </Principal>
+            <Dependent Role="Item1">
+              <PropertyRef Name="SubItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A12AA1_DeclutterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <AssociationSet Name="FK__Item__Area_ID__1367E606" Association="Self.FK__Item__Area_ID__1367E606">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Item__SubItem__1273C1CD" Association="Self.FK__Item__SubItem__1273C1CD">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Item1" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A12AA1_DeclutterModelStoreContainer" CdmEntityContainer="DB_A12AA1_DeclutterEntities">
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="DB_A12AA1_DeclutterModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+                <ScalarProperty Name="Area_Name" ColumnName="Area_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="DB_A12AA1_DeclutterModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SpaceTaken" ColumnName="SpaceTaken" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Moved" ColumnName="Moved" />
+                <ScalarProperty Name="CoverImage" ColumnName="CoverImage" />
+                <ScalarProperty Name="Sell" ColumnName="Sell" />
+                <ScalarProperty Name="Dispose" ColumnName="Dispose" />
+                <ScalarProperty Name="Repurpose" ColumnName="Repurpose" />
+                <ScalarProperty Name="GiveAway" ColumnName="GiveAway" />
+                <ScalarProperty Name="ActionCompleted" ColumnName="ActionCompleted" />
+                <ScalarProperty Name="SubItem" ColumnName="SubItem" />
+                <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

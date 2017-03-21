@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EClutter.Models.Area>
+
+@{
+    ViewBag.Title = "Rooms";
+}
+           
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>Rooms.</h3>
+        </div>
+    </div> 
+</div>
+<div id="areas">
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "areas", HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))
+{
+    if (Model.Count() > 1){
+        foreach (var item in Model.Where(x => x.Area_ID > 1))
+        {
+<div class="container mtb">
+    <div class="row">
+        <div class="col-lg-6">
+            @if (item.Area_ID == Model.First().Edit_Name) { 
+                            <input id="newRoomName" name="newRoomName" type="text" class="form-control " />
+                              <input id="id" name="id" type="text" style="visibility:hidden" value="@Html.DisplayFor(modelItem => item.Area_ID)" />
+
+                             <input type="submit" value="Enter" class="btn" />
+            }
+            else { 
+
+                <h4>@Html.DisplayFor(modelItem => item.Area_Name).</h4>
+            }
+            <p>Contains @Html.DisplayFor(modelItem => item.Clutter_Count) Clutter Cases.</p>
+        </div>
+
+        <div class="col-lg-6">
+            <i class='fa fa-plus'></i>@Html.ActionLink("New Clutter Case ", "Create", new { roomnum = @Html.DisplayFor(modelItem => item.Area_ID), sub = 1 }, new { @class = "btn btn-theme" })
+            @Ajax.ActionLink("Delete ", "DeleteRoom", new { id = item.Area_ID }, new AjaxOptions { UpdateTargetId = "areas", HttpMethod = "POST", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-danger" })
+            @Ajax.ActionLink("Change Name ", "Rooms", new { id = item.Area_ID }, new AjaxOptions { UpdateTargetId = "areas", HttpMethod = "POST", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-warning" })
+
+
+        </div>
+    </div>
+</div>
+}
+    }
+    else{
+    <div class="container mtb">
+    <div class="row">
+        <div class="col-lg-6">
+            <p>
+                Hi rooms go here, but first will you need to add one with the bar below.
+            </p>
+        </div>
+    </div>
+</div>
+
+}
+            }
+
+
+    </div>
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "areas", HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))
+        {
+<div class="container mtb">
+    <div class="row">
+        <div class="col-md-8">
+            <input id="roomName" name="roomName" type="text" class="form-control" />
+
+        </div>
+        <div class="col-md-4">
+
+            <input type="submit" value="Enter" class="btn" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label>To add a room put the name of the room above and press enter</label>
+        </div>
+    </div>
+ 
+</div>
+        }

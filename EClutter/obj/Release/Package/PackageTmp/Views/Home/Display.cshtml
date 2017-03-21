@@ -1,0 +1,170 @@
+﻿@model EClutter.Models.Item
+
+@{
+    ViewBag.Title = "Clutter Case";
+}
+
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>@Html.DisplayFor(modelItem => modelItem.Name).</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container mt">
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="spacing"></div>
+            @if (!Model.ActionCompleted)
+            {
+                <h4>Commit a Action</h4>
+                if(Model.Dispose){ 
+                  <p>  @Html.ActionLink("Dispose", "CommitAction", new { act = "Dispose", iid = Model.Item_ID }, new { @class = "btn btn-primary actionbtn" }) </p>
+                }
+                if (Model.Sell) { 
+                  <p>   @Html.ActionLink("Sell", "CommitAction", new { act = "Sell", iid = Model.Item_ID, }, new { @class = "btn btn-primary actionbtn" })</p>
+                }
+                if (Model.GiveAway) { 
+            <p>  @Html.ActionLink("Give away", "CommitAction", new { act = "Give", iid = Model.Item_ID }, new { @class = "btn btn-primary actionbtn" })</p>
+                }
+                if (Model.Repurpose) {
+            <p>@Html.ActionLink("Repurpose ", "CommitAction", new { act = "Repurpose", iid = Model.Item_ID }, new { @class = "btn btn-primary actionbtn" })</p>
+                }
+            <p>@Html.ActionLink("Leave ", "Index", new { }, new { @class = "btn btn-primary actionbtn" })</p>
+               
+               
+
+                }
+</div>
+
+
+        <div class="col-lg-6">
+            <img src="/Images/@Html.DisplayFor(modelItem => modelItem.CoverImage)" alt="">
+        </div>
+@if (!Model.ActionCompleted)
+            {
+
+        <div class="col-lg-6 col-lg-offset-1 centered">
+            <i class='fa fa-plus'></i>@Html.ActionLink("New Clutter Case ", "Create", new { roomnum = @Html.DisplayFor(modelItem => modelItem.Area_ID), sub = @Html.DisplayFor(modelItem => modelItem.Item_ID) }, new { @class = "btn btn-theme" })
+        </div>
+            }
+
+    </div>
+
+
+    <div class="col-lg-4 col-lg-offset-1">
+        <div class="spacing"></div>
+        <h4>Clutter Details</h4>
+        <div class="hline"></div>
+        @*<p><b>Date:</b> April 18, 2014</p>*@
+        <p><b>Room:</b> @Html.DisplayFor(modelItem => modelItem.Area.Area_Name)</p>
+        <p><b>Location:</b> @Html.DisplayFor(modelItem => modelItem.Location)</p>
+        @*<p><b>Moved:</b> 10 Times</p>*@
+        @if (Model.SpaceTaken < 100)
+        {
+            <p><b>Space taken:</b> Tiny </p>
+        }
+        else if (Model.SpaceTaken < 500)
+        {
+            <p><b>Space taken:</b> Small </p>
+        }
+        else if (Model.SpaceTaken < 1000)
+        {
+            <p><b>Space taken:</b> Medium </p>
+        }
+        else if (Model.SpaceTaken < 5000)
+        {
+            <p><b>Space taken:</b> Large </p>
+        }
+        else
+        {
+            <p><b>Space taken:</b> Huge </p>
+        }
+
+    </div>
+
+</div>
+
+
+@if (Model.Item1.Count > 0) { 
+<div id="portfoliowrap">
+    <div class="portfolio-centered">
+        <h3>This Contains.</h3>
+        <div class="recentitems portfolio">
+            @foreach (var item in Model.Item1)
+            {
+                    <div class="portfolio-item @Html.DisplayFor(modelItem => item.ClassActions)">
+                        <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <div class="he-wrap tpl6">
+
+                            <img src="/Images/@Html.DisplayFor(modelItem => item.CoverImage)" alt="">
+
+
+                            <div class=" bg a0 he-view " data-animate="fadeIn">
+
+                                <a href="/Home/Edit/@Html.DisplayFor(modelItem => item.Item_ID)" class="dmbutton a2 btn-warning" data-animate="fadeInUp"><i class="fa fa-wrench"></i></a>
+                                <a href="#deleteoptions_@Html.DisplayFor(modelItem => item.Item_ID)" class="dmbutton a2 btn-danger" data-animate="fadeInUp" data-toggle="modal"><i class="fa fa-times-circle"></i></a>
+
+                                <a href="/Home/Display/@Html.DisplayFor(modelItem => item.Item_ID)">
+
+                                    <div class="bg a0 lite" data-animate="fadeIn">
+                                    </div>
+                                </a>
+
+                                @Html.HiddenFor(modelItem => item.Item_ID)
+
+                            </div>
+                        </div>
+                    </div>
+            }
+        </div>
+    </div>>
+</div>
+    
+    
+   
+    foreach (var item in Model.Item1)
+    {
+        <div class="portfolio-modal modal fade" id="deleteoptions_@Html.DisplayFor(modelItem => item.Item_ID)" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl">
+                                </div>
+                            </div>
+                        </div>                        <h3 class="modal-title" id="lineModalLabel">Delete</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <h3>Are you sure you want to delete this item?</h3>
+                        <p>You can choose to delete this item, and everything it may contain, or just delete the record of the collection if it contains other items, these items would then became part of the main listing.</p>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" role="button">Don't Delete Anything</button>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="/Home/DeleteCollectionOnly/@Html.DisplayFor(modelItem => item.Item_ID)"><button type="button" class="btn btn-default btn-hover-green">Record of Collection</button></a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="/Home/Delete/@Html.DisplayFor(modelItem => item.Item_ID)"><button type="button" class="btn btn-default btn-hover-green">Everthing Inside</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+    
+    
+    
+

@@ -1,0 +1,59 @@
+﻿@model  IEnumerable<EClutter.Models.Item>
+
+
+@{
+    ViewBag.Title = "Progress";
+}
+
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>Progress.</h3>
+        </div><!-- /row -->
+    </div> <!-- /container -->
+
+    </div>
+<div class="container">
+
+    <div class="col-lg-6">
+        <section class="panel">
+            <header class="panel-heading">
+                
+            </header>
+            <div class="panel-body text-center">
+                <canvas id="bar" height="300" width="500"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-lg-6">
+        <section class="panel">
+            <header class="panel-heading">
+                
+            </header>
+            <div class="panel-body text-center">
+                <canvas id="pie" height="300" width="400"></canvas>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+@Html.HiddenFor(modelItem => modelItem.First().ForDisposal)
+@Html.HiddenFor(modelItem => modelItem.First().Disposed)
+@Html.HiddenFor(modelItem => modelItem.First().ForSale)
+@Html.HiddenFor(modelItem => modelItem.First().Sold)
+@Html.HiddenFor(modelItem => modelItem.First().ForGivingAway)
+@Html.HiddenFor(modelItem => modelItem.First().GivenAway)
+@Html.HiddenFor(modelItem => modelItem.First().ForRepurposing)
+@Html.HiddenFor(modelItem => modelItem.First().Repurposed)
+@Html.HiddenFor(modelItem => modelItem.First().AmountCompleted)
+@Html.HiddenFor(modelItem => modelItem.First().AmountNotCompleted)
+
+
+
+
+<script src="/Scripts/jquery-1.8.3.min.js"></script>
+<script src="/Scripts/Chart.js"></script>
+
+    <script src="/Scripts/chartjs-custom.js"></script>

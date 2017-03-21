@@ -1,0 +1,141 @@
+﻿@model EClutter.Models.Item
+
+@{
+    ViewBag.Title = "Amend Clutter Case";
+}
+
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>Amend Clutter Case.</h3>
+        </div>
+    </div> 
+</div>
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {<div class="container mtb">
+        <div class="row">
+            <div class="col-lg-12">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Item_ID)
+                @Html.HiddenFor(model => model.CoverImage)
+                @Html.HiddenFor(model => model.Area_ID)
+                @Html.HiddenFor(model => model.SubItem)
+                @Html.HiddenFor(model => model.Moved)
+                <div>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"><b>New Image</b></label>
+                        <label class="btn btn-default btn-file">
+                            Upload Image <input type="file" name="file" id="file">
+                        </label>
+                        @Html.ValidationMessageFor(model => model.CoverImage, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2"><b>Size of clutter</b></label>
+                        <div class="price-box">
+                            <div class="price-slider">
+                                <div class="col-sm-12">
+                                    <div id="slider2"><h6 class="small">Small</h6> <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%;"></a><h1 class="large">Large</h1></div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"><b>Where in room</b></label>
+                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control"} })
+                        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-8">
+                        <label class="control-label col-md-2"><b>Change Actions</b></label>
+                        <br><br><br>
+                        <div class="form-group">
+                            <div class="btn-group" data-toggle="buttons">
+                                @if (Model.Dispose)
+                                { <label class="btn btn-primary actionbtn active focus">
+                                    @Html.EditorFor(model => model.Dispose, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Dispose</b></span>
+                                </label>}
+                                else
+                                { <label class="btn btn-primary actionbtn">
+                                    @Html.EditorFor(model => model.Dispose, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Dispose</b></span>
+                                </label>}
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="btn-group" data-toggle="buttons">
+                                @if (Model.Sell)
+                                { <label class="btn btn-primary actionbtn active focus">
+                                    @Html.EditorFor(model => model.Sell, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Sell</b></span>
+                                </label>}
+                                else
+                                { <label class="btn btn-primary actionbtn">
+                                    @Html.EditorFor(model => model.Sell, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Sell</b></span>
+                                </label>}
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="btn-group" data-toggle="buttons">
+                                @if (Model.GiveAway)
+                                { <label class="btn btn-primary actionbtn active focus">
+                                    @Html.EditorFor(model => model.GiveAway, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Give Away</b></span>
+                                </label>}
+                                else
+                                { <label class="btn btn-primary actionbtn">
+                                    @Html.EditorFor(model => model.GiveAway, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Give Away</b></span>
+                                </label>}
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="btn-group" data-toggle="buttons">
+                                @if (Model.Repurpose)
+                                { <label class="btn btn-primary actionbtn active focus">
+                                    @Html.EditorFor(model => model.Repurpose, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Repurpose</b></span>
+                                </label>}
+                                else
+                                { <label class="btn btn-primary actionbtn">
+                                    @Html.EditorFor(model => model.Repurpose, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span><b>Repurpose</b></span>
+                                </label>}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="price-form">
+                        @Html.EditorFor(model => model.SpaceTaken, new { htmlAttributes = new { style = "visibility:hidden;" } })
+                    </div><br>
+
+                    <input type="submit" value="Save" class="btn-lg" />
+
+                </div>
+                <br><br> 
+                <div>
+                    @Html.ActionLink("Back to index", "Index")
+                </div>
+
+            </div>
+        </div>
+    </div>}

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A12AA1_DeclutterModelStoreContainer" CdmEntityContainer="DB_A12AA1_DeclutterEntities">
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="DB_A12AA1_DeclutterModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+          <ScalarProperty Name="Area_Name" ColumnName="Area_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="DB_A12AA1_DeclutterModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SpaceTaken" ColumnName="SpaceTaken" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Moved" ColumnName="Moved" />
+          <ScalarProperty Name="CoverImage" ColumnName="CoverImage" />
+          <ScalarProperty Name="Sell" ColumnName="Sell" />
+          <ScalarProperty Name="Dispose" ColumnName="Dispose" />
+          <ScalarProperty Name="Repurpose" ColumnName="Repurpose" />
+          <ScalarProperty Name="GiveAway" ColumnName="GiveAway" />
+          <ScalarProperty Name="ActionCompleted" ColumnName="ActionCompleted" />
+          <ScalarProperty Name="SubItem" ColumnName="SubItem" />
+          <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

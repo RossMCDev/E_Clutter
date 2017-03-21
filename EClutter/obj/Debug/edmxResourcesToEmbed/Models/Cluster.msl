@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DeclutterDBModelStoreContainer" CdmEntityContainer="DeclutterDBEntities">
+    <EntitySetMapping Name="CollectionItems">
+      <EntityTypeMapping TypeName="DeclutterDBModel.CollectionItem">
+        <MappingFragment StoreEntitySet="CollectionItem">
+          <ScalarProperty Name="CollectionItem1" ColumnName="CollectionItem" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disposables">
+      <EntityTypeMapping TypeName="DeclutterDBModel.Disposable">
+        <MappingFragment StoreEntitySet="Disposable">
+          <ScalarProperty Name="Disposable_ID" ColumnName="Disposable_ID" />
+          <ScalarProperty Name="Disposed" ColumnName="Disposed" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="For_Sale">
+      <EntityTypeMapping TypeName="DeclutterDBModel.For_Sale">
+        <MappingFragment StoreEntitySet="For_Sale">
+          <ScalarProperty Name="For_Sale_ID" ColumnName="For_Sale_ID" />
+          <ScalarProperty Name="Sold" ColumnName="Sold" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Give_away">
+      <EntityTypeMapping TypeName="DeclutterDBModel.Give_away">
+        <MappingFragment StoreEntitySet="Give_away">
+          <ScalarProperty Name="Give_away_ID" ColumnName="Give_away_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ICollections">
+      <EntityTypeMapping TypeName="DeclutterDBModel.ICollection">
+        <MappingFragment StoreEntitySet="ICollection">
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="ISet" ColumnName="ISet" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="DeclutterDBModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Images_ID" ColumnName="Images_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="DeclutterDBModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Space_Taken" ColumnName="Space_Taken" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Store_Location" ColumnName="Store_Location" />
+          <ScalarProperty Name="Moved" ColumnName="Moved" />
+          <ScalarProperty Name="Cover_Image" ColumnName="Cover_Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repurposables">
+      <EntityTypeMapping TypeName="DeclutterDBModel.Repurposable">
+        <MappingFragment StoreEntitySet="Repurposable">
+          <ScalarProperty Name="Repurpose_ID" ColumnName="Repurpose_ID" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

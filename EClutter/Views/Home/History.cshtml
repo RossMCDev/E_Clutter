@@ -1,0 +1,117 @@
+﻿@model  IEnumerable<EClutter.Models.Item>
+
+
+@{
+    ViewBag.Title = "History";
+}
+
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>History of Clutter.</h3>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row centered">
+        <div class="col-md-10">
+            <div class="portfolioFilter">
+                <ul class="Portfolio-nav ">
+                    <li><a href="#" data-filter="*" class="current">All</a></li>
+                    <li><a href="#" data-filter=".dispose">Disposed</a></li>
+                    <li><a href="#" data-filter=".give"> Given away</a></li>
+                    <li><a href="#" data-filter=".sell">Sold</a></li>
+                    <li><a href="#" data-filter=".repupose">Repurposed</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="portfoliowrap">
+    <h3>Clutter Cases</h3>
+    <div class="portfolio-centered">
+        <div class="recentitems portfolio portfolioContainer">
+            @if (Model.Count() > 0)
+            {
+                foreach (var item in Model.Where(x => x.Item_ID > 1 && x.SubItem == 1))
+                {
+
+                    <div class="portfolio-item @Html.DisplayFor(modelItem => item.ClassActions)">
+                        <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <div class="he-wrap tpl6">
+
+                            <img src="/Images/@Html.DisplayFor(modelItem => item.CoverImage)" alt="">
+
+
+                            <div class=" bg a0 he-view " data-animate="fadeIn">
+
+                                <a href="#deleteoptions_@Html.DisplayFor(modelItem => item.Item_ID)" class="dmbutton a2 btn-danger" data-animate="fadeInUp" data-toggle="modal"><i class="fa fa-times-circle"></i></a>
+
+                                <a href="/Home/Display/@Html.DisplayFor(modelItem => item.Item_ID)">
+
+                                    <div class="bg a0 lite" data-animate="fadeIn">
+                                    </div>
+                                </a>
+
+                                @Html.HiddenFor(modelItem => item.Item_ID)
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+
+@if (Model.Count() > 1)
+{
+    foreach (var item in Model.Where(x => x.Item_ID > 1 && x.SubItem == 1))
+    {
+        <div class="portfolio-modal modal fade" id="deleteoptions_@Html.DisplayFor(modelItem => item.Item_ID)" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl">
+                                </div>
+                            </div>
+                        </div>                        <h3 class="modal-title" id="lineModalLabel">Delete</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <h3>Are you sure you want to delete this item?</h3>
+                        <p>You can choose to delete this item, and everything it may contain, or just delete the record of the collection if it contains other items, these items would then became part of the main listing.</p>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" role="button">Don't Delete Anything</button>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="/Home/DeleteCollectionOnly/@Html.DisplayFor(modelItem => item.Item_ID)"><button type="button" class="btn btn-default btn-hover-green">Record of Collection</button></a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="/Home/Delete/@Html.DisplayFor(modelItem => item.Item_ID)"><button type="button" class="btn btn-default btn-hover-green">Everthing Inside</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+
